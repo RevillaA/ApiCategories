@@ -27,7 +27,6 @@ public class Category {
         this.updatedAt = updatedAt;
     }
 
-    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -43,7 +42,6 @@ public class Category {
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 
-    // Auto-set fechas
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
