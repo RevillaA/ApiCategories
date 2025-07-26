@@ -5,6 +5,7 @@ import com.example.categorias.Repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,11 +36,14 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category updateCategory(Long id, Category category) {
-        if (!categoryRepository.existsById(id)) {
-            throw new IllegalArgumentException("Category not found with id " + id);
-        }
-        category.setId(id);
-        return categoryRepository.save(category);
+        return categoryRepository.findById(id)
+            .map(existing -> {
+                existing.setName(category.getName());
+                existing.setDescription(category.getDescription());
+                existing.setUpdatedAt(LocalDateTime.now());
+                return categoryRepository.save(existing);
+            })
+            .orElseThrow(() -> new IllegalArgumentException("Category not found with id " + id));
     }
 
     @Override
