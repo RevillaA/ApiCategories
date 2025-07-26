@@ -86,5 +86,5 @@ docker run -d --name c-app-categoria --network test-network -p 8082:8003 -e PORT
 ##  Probar con Postman 
 
 ```bash
-http://localhost:8081/api/categories
+http://localhost:8082/api/categories
 ```
