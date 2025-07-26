@@ -38,7 +38,7 @@ Ambos contenedores (base de datos y aplicación) deben estar conectados a la mis
 docker network create test-network
 ```
 
-### 🐬 Inicializar contenedor MySQL
+### Inicializar contenedor MySQL
 
 Antes de levantar la aplicación, se debe ejecutar un contenedor de MySQL:
 
@@ -67,7 +67,7 @@ https://hub.docker.com/r/antonio215/api-categories-crud
 Ejecuta el siguiente comando para iniciar la API:
 
 ```bash
-docker run -d --name c-app-categoria --network test-network -p 8081:8003 -e PORT=8003 -e DB_HOST=test-db:3306 antonio215/api-categories-crud
+docker run -d --name c-app-categoria --network test-network -p 8082:8003 -e PORT=8003 -e DB_HOST=test-db:3306 antonio215/api-categories-crud
 ```
 
 ---
