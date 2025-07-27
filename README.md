@@ -5,7 +5,7 @@ Este proyecto ha sido desarrollado con **Spring Boot** y ha sido **Dockerizado**
 ## Ruta base de la API
 
 ```
-http://localhost:8081/api/categories
+http://localhost:8082/api/categories
 ```
 
 > Nota: El puerto puede variar dependiendo de la configuración local.
