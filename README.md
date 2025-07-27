@@ -43,7 +43,7 @@ docker network create test-network
 Antes de levantar la aplicación, se debe ejecutar un contenedor de MySQL:
 
 ```bash
-docker run --name test-db -e MYSQL_ROOT_PASSWORD=admin123 -e MYSQL_DATABASE=test -p 3306:3306 -d --network test-network mysql
+docker run --rm --name test-db -e MYSQL_ROOT_PASSWORD=admin123 -e MYSQL_DATABASE=test -p 3306:3306 -d --network test-network mysql
 ```
 
 **Datos importantes:**
@@ -67,7 +67,7 @@ https://hub.docker.com/r/antonio215/api-categories-crud
 Ejecuta el siguiente comando para iniciar la API:
 
 ```bash
-docker run -d --name c-app-categoria --network test-network -p 8082:8003 -e PORT=8003 -e DB_HOST=test-db:3306 antonio215/api-categories-crud
+docker run --rm -d --name c-app-categoria --network test-network -p 8082:8003 -e PORT=8003 -e DB_HOST=test-db:3306 antonio215/api-categories-crud
 ```
 
 ---
