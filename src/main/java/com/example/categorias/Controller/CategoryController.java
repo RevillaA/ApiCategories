@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.categorias.Model.Category;
 import com.example.categorias.Services.CategoryService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -32,13 +34,13 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createCategory(@RequestBody Category category) {
+    public ResponseEntity<?> createCategory(@Valid @RequestBody Category category) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(categoryService.createCategory(category));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category c) {
+    public ResponseEntity<Category> update(@PathVariable Long id, @Valid @RequestBody Category c) {
         try {
             return ResponseEntity.ok(categoryService.updateCategory(id, c));
         } catch (RuntimeException e) {
